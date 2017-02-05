@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.randioo.template_server.db.dao.RoleDao">
+	<resultMap type="Role" id="role">
+		<id column="id" property="roleId" />
+		<result column="account" property="account" />
+		<result column="name" property="name" />
+		<result column="money" property="money" />
+	</resultMap>
+	<resultMap type="java.lang.String" id="accountList">
+		<result column="account" property="account"></result>
+	</resultMap>
+	<resultMap type="java.lang.String" id="nameList">
+		<result column="name" property="name"></result>
+	</resultMap>
+
+	<!-- insert -->	
+	<!-- useGeneratedKeys="true" keyProperty="roleId" -->
+	<insert id="insertRole" parameterType="Role" useGeneratedKeys="true" keyProperty="roleId">
+		insert into role
+		(id,account,name,money)
+		values(#{roleId},#{account},#{name},#{money})
+	</insert>
+
+	<!-- select -->
+	<select id="getRoleByAccount" resultMap="role">
+		select * from role where
+		account=#{account}
+	</select>
+
+	<!-- select -->
+	<select id="getAllRole" resultMap="role">
+		select * from role
+	</select>
+
+	<!-- select -->
+	<select id="getRoleById" resultMap="role">
+		select * from role where
+		id=#{roleId}
+	</select>
+
+	<!-- select -->
+	<select id="getAllAccounts" resultMap="accountList">
+		select account from role
+	</select>
+
+	<!-- select -->
+	<select id="getAllNames" resultMap="nameList">
+		select name from role
+	</select>
+
+	<!-- update -->
+	<update id="updateRole">
+		update role set
+		name=#{name},money=#{money}
+		where id=#{roleId}
+	</update>
+</mapper>

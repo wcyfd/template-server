@@ -1,0 +1,12 @@
+package com.randioo.template_server.protocol;
+import "Login.proto";
+import "Ping.proto";
+
+//4
+message CSMessage{
+	optional LoginCheckAccountRequest loginCheckAccountRequest=1;
+	optional LoginCreateRoleRequest loginCreateRoleRequest=2;
+	optional LoginGetRoleDataRequest loginGetRoleDataRequest=3;
+
+	optional PingRequest pingRequest = 4;
+}

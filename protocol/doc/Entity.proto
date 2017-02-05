@@ -1,0 +1,7 @@
+package com.randioo.template_server.protocol;
+
+message RoleData{
+	optional int32 roleId = 1;
+	optional string name =2;
+	optional int32 money = 3;
+}

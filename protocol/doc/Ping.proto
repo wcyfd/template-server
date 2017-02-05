@@ -1,0 +1,10 @@
+package com.randioo.template_server.protocol;
+
+message PingRequest{
+	optional int64 clientTimestamp = 1;
+}
+
+message PingResponse{
+	optional int64 clientTimestamp = 1;
+	optional int64 serverTimestamp = 2;
+}

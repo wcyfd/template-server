@@ -1,0 +1,12 @@
+package com.randioo.template_server.protocol;
+import "Login.proto";
+import "Ping.proto";
+
+//4
+message SCMessage{
+	optional LoginCheckAccountResponse loginCheckAccountResponse=1;
+	optional LoginCreateRoleResponse loginCreateRoleResponse=2;
+	optional LoginGetRoleDataResponse loginGetRoleDataResponse=3;	
+
+	optional PingResponse pingResponse = 4;
+}
